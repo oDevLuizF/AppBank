@@ -2,7 +2,7 @@ package dev.luizfelipe;
 
 import util.convert.brl.util.utilsBrl;
 
-public class account {
+public class Account {
     private static int contAccount = 1;
     private int numberAccount;
     private User person;
@@ -10,7 +10,7 @@ public class account {
 
 
     //contrutor
-    public account(User person) {
+    public Account(User person) {
         this.numberAccount = contAccount;
         this.person = person;
         contAccount += 1;
@@ -77,15 +77,20 @@ public class account {
     }
 
     //metodo de realiazr transeferencia
-    public  void transfer(account accounttodeposit, Double value){
+    public  void transfer(Account accounttodeposit, Double value){
         if (value > 0 && this.getBalance() >= value){
             setBalance(getBalance() - value);
 
             accounttodeposit.balance = accounttodeposit.getBalance() + value;
             System.out.println("Transferencia realizada com sucesso!");
 
+        }else {
+            System.out.println("[ERRO] sua transferencia nao foi realizada!");
         }
-}
+    }
+
+
+
 
 
 
